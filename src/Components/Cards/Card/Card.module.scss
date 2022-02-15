@@ -1,0 +1,57 @@
+@import '../../../variables.scss';
+
+.card {
+    width: 100%;
+    padding: 7px;
+    box-sizing: border-box;
+    @include media(tablet-portrait-up ) {    
+        width: 50%;
+     }
+    @include media(tablet-landscape-up ) {    
+        width: 33.333333%;
+     }
+    @include media(desktop-up) {    
+        width: 20%;
+     }
+}
+.cardTitle{
+    min-height: 40px;
+    font-size: 1rem;
+   
+    
+}
+.cardBody{
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.cardImage{
+    width: 75%;
+    display: block;
+    margin: 20px auto;
+}
+.cardPrice {
+    font-size: 1.1rem;
+    color: #c00;
+   
+}
+.cardButtonWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #cecece;
+    &:hover{
+        background-color: #e9e9e9;
+    }
+}
