@@ -14,48 +14,56 @@ function Favorites() {
       });
   }, []);
 
-  function onFavoriteHandler (item) {
+  function onFavoriteHandler(item) {
     console.log(item);
   }
   return (
     <Fragment>
       <div className="container">
         <div className={style.cardWrapper}>
-          {items.map((item) => {
-            return (
-              <div className={styles.card} key={item.id}>
-                <div className={styles.cardBody}>
-                  <img
-                    src={item.imageUrl}
-                    className={styles.cardImage}
-                    alt={item.title}
-                  />
-                  <h5 className={styles.cardTitle}>{item.title}</h5>
-                  <p className={styles.cardPrice}>
-                    <b>{item.price} $</b>
-                  </p>
+          {items.length <= 0 ? (
+            <div className="">
+              <h1>Yo do not have favorite items </h1>
+            </div>
+          ) : (
+            items.map((item) => {
+              return (
+                <div className={styles.card} key={item.id}>
+                  <div className={styles.cardBody}>
+                    <img
+                      src={item.imageUrl}
+                      className={styles.cardImage}
+                      alt={item.title}
+                    />
+                    <h5 className={styles.cardTitle}>{item.title}</h5>
+                    <p className={styles.cardPrice}>
+                      <b>{item.price} $</b>
+                    </p>
 
-                  <div className={styles.cardButtonWrapper}>
-                    <button className={styles.cardButton}>
-                      <img src="img/plus.svg" alt="add to basket" />
-                    </button>
+                    <div className={styles.cardButtonWrapper}>
+                      <button className={styles.cardButton}>
+                        <img src="img/plus.svg" alt="add to basket" />
+                      </button>
 
-                    <button className={styles.cardButton} onClick = {(e)=> onFavoriteHandler.bind(e, item)}>
-
-                      {item.favorites ? (
-                        <img
-                          src={"img/heart-liked.svg"}
-                          alt="add to favorites"
-                        />
-                      ) : (
-                        <img src={"img/heart.svg"} alt="add to favorites" />
-                      )}
-                    </button>
+                      <button
+                        className={styles.cardButton}
+                        onClick={(e) => onFavoriteHandler.bind(e, item)}
+                      >
+                        {item.favorites ? (
+                          <img
+                            src={"img/heart-liked.svg"}
+                            alt="add to favorites"
+                          />
+                        ) : (
+                          <img src={"img/heart.svg"} alt="add to favorites" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
     </Fragment>
